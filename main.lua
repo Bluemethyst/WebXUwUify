@@ -1,6 +1,6 @@
-local input_box = get("input")
-local output_box = get("output")
-local uwuify_button = get("button")
+local input_box = get("input-text")
+local output_box = get("output-text")
+local uwuify_button = get("uwuify-button")
 
 function uwuify(str, stutterChance)
     math.randomseed(os.time())
@@ -74,6 +74,8 @@ end
 
 uwuify_button.on_click(
     function()
+        print("UwUifying...")
+        output_box.set_content = "UwUifying..."
         local output_text = uwuify(input_box.text, 0.2)
         output_box.set_content = output_text
     end
