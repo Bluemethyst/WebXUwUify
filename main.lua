@@ -3,7 +3,6 @@ local output_box = get("output-text")
 local uwuify_button = get("uwuify-button")
 
 function uwuify(str, stutterChance)
-    math.randomseed(os.time())
     local smilies = {
         "(ᵘʷᵘ)",
         "(ᵘﻌᵘ)",
@@ -74,9 +73,7 @@ end
 
 uwuify_button.on_click(
     function()
-        print("UwUifying...")
-        output_box.set_content = "UwUifying..."
-        local output_text = uwuify(input_box.text, 0.2)
-        output_box.set_content = output_text
+        local input_text = input_box.get_content()
+        output_box.set_content(uwuify(input_text, 0.5))
     end
 )
